@@ -4,8 +4,9 @@ con = MySQLdb.connect('localhost', 'root', '')
 con.select_db('cantina')
 
 cursor = con.cursor()
-date = time.strftime("%H")
-cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "1010"))
+date = time.strftime("%H:%M:%S")
+cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "Microsoft"))
+con.commit()
 
 print("######################### Sistema para cantina do SENAI #########################\n \n")
 from datetime import datetime
