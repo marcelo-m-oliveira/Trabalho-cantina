@@ -28,9 +28,9 @@ print("[12345] - redes")
 tur = int(input("Opcao: "))
 
 if tur == 54125:
-    if now.hour < 20:
+    if now.hour > 23:
         print("espere a hora de seu intervalo")
-    elif (now.hour == 20 and now.minute >= 0) and (now.hour == 20 and now.minute <= 16):
+    elif (now.hour == 19 and now.minute >= 40) and (now.hour == 19 and now.minute <= 59):
 
         print("Nome do aluno: ", a)
         print("Turma do aluno: ", tur, "\n")
@@ -69,7 +69,7 @@ if tur == 54125:
                 print("Pegue o lanche e o suco de sua preferencia na cantina. R$4,00")
                 break
 
-    elif now.hour >= 20 and now.minute > 15:
+    elif now.hour == 20: #and now.minute > 15:
         print("Já acabou o horário.")
 
 elif tur == 12345:
@@ -118,10 +118,18 @@ elif tur == 12345:
     if now.hour > 21 and now.minute > 16:
         print("Já acabou o horário.")
 
+
+
+#INTEGRAÇÃO COM MYSQL ABAIXO
+
+################################### TURMA ###################################
+
 date = time.strftime("%H:%M:%S")
 cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
 cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
 con.commit()  # TURMA
+
+################################### ALUNO ###################################
 
 cursor.execute('select idTurma from turma where nomeTurma = %s' % (tur))
 selecao = cursor.fetchone()
@@ -129,10 +137,12 @@ id = int(selecao[0])
 cursor.execute('insert into aluno (nome, turma,idTurma) values ("%s", "%d","%d")' % (a, tur, id))
 con.commit()  # ALUNO
 
+################################### PEDIDO ###################################
+
 peca = (res)
 casadinha = (res)
 suco = (res)
 
 cursor.execute('insert into pedido (horario, peca, suco, casadinha) values ("%s", "%s", "%s", "%s")' % (
 date, peca, suco, casadinha))
-con.commit()  # PEDIDO
+con.commit()
