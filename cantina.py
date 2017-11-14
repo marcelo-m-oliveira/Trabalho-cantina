@@ -8,13 +8,7 @@ cursor = con.cursor()
 res = int
 
 print("######################### Sistema para cantina do SENAI #########################\n \n")
-from datetime import datetime
 
-now = datetime.now()
-print(now.hour, ":", now.minute)
-print(now.day, "/", now.month, "/", now.year)
-
-print("######################### Sistema para cantina do SENAI #########################\n \n")
 from datetime import datetime
 
 now = datetime.now()
@@ -69,7 +63,7 @@ if tur == 54125:
                 print("Pegue o lanche e o suco de sua preferencia na cantina. R$4,00")
                 break
 
-    elif now.hour >= 23: #and now.minute > 15:
+    elif now.hour >= 23:  # and now.minute > 15:
         print("Já acabou o horário.")
 
 elif tur == 12345:
@@ -118,20 +112,16 @@ elif tur == 12345:
     if now.hour > 21 and now.minute > 16:
         print("Já acabou o horário.")
 
-
-
-#INTEGRAÇÃO COM MYSQL ABAIXO
+# INTEGRAÇÃO COM MYSQL ABAIXO
 
 ################################### TURMA ###################################
 
 date = time.strftime("%H:%M:%S")
-#cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
-#cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
 cursor.execute('select idTurma from turma where nomeTurma = %s' % (tur))
 selecao = cursor.fetchone()
-#id = int(selecao[0])
 cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, (tur)))
 con.commit()
+#############################################################################
 
 ################################### ALUNO ###################################
 
@@ -141,11 +131,24 @@ id = int(selecao[0])
 cursor.execute('insert into aluno (nome, turma,idTurma) values ("%s", "%d","%d")' % (a, tur, id))
 con.commit()
 
+#############################################################################
+
 ################################### PEDIDO ###################################
 
-peca = (res)
-casadinha = (res)
-suco = (res)
+peca = (lan)
+casadinha = (lan)
+suco = (suc)
 
-cursor.execute('insert into pedido (horario, peca, suco, casadinha) values ("%s", "%s", "%s", "%s")' % (date, peca, suco, casadinha))
+cursor.execute('insert into pedido (horario, peca, suco, casadinha) values ("%s", "%s", "%s", "%s")' % (
+date, peca, suco, casadinha))
+con.commit()
+
+#############################################################################
+
+################################### PRODUTO ###################################
+
+cursor.execute('select idPedido from pedido where nomePedido = %s' % (res))
+selecao = cursor.fetchone()
+id = int(selecao[0])
+cursor.execute('insert into produto (preco, nomeProduto) values (%s, %s)' % (res, lan or suc))
 con.commit()
