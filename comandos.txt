@@ -1,3 +1,19 @@
+###################################Mysql no piton no CMD####################################
+
+pip install wheel
+pip3 install mysqlclient
+pip install pymysql
+
+
+
+###################################ERROS####################################
+
+#cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
+#cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
+#id = int(selecao[0])
+
+
+
 -------------------------------- MySql-------------------------------------------
 
 create database if not exists cantina;

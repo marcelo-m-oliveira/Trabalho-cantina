@@ -7,7 +7,6 @@ con.select_db('cantina')
 cursor = con.cursor()
 res = int
 
-print("######################### Sistema para cantina do SENAI #########################\n \n")
 from datetime import datetime
 
 now = datetime.now()
@@ -15,6 +14,7 @@ print(now.hour, ":", now.minute)
 print(now.day, "/", now.month, "/", now.year)
 
 print("######################### Sistema para cantina do SENAI #########################\n \n")
+
 from datetime import datetime
 
 now = datetime.now()
@@ -125,13 +125,11 @@ elif tur == 12345:
 ################################### TURMA ###################################
 
 date = time.strftime("%H:%M:%S")
-#cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
-#cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
 cursor.execute('select idTurma from turma where nomeTurma = %s' % (tur))
 selecao = cursor.fetchone()
-#id = int(selecao[0])
 cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, (tur)))
 con.commit()
+#############################################################################
 
 ################################### ALUNO ###################################
 
@@ -140,6 +138,8 @@ selecao = cursor.fetchone()
 id = int(selecao[0])
 cursor.execute('insert into aluno (nome, turma,idTurma) values ("%s", "%d","%d")' % (a, tur, id))
 con.commit()
+
+#############################################################################
 
 ################################### PEDIDO ###################################
 
@@ -150,3 +150,5 @@ suco = (res)
 cursor.execute('insert into pedido (horario, peca, suco, casadinha) values ("%s", "%s", "%s", "%s")' % (
 date, peca, suco, casadinha))
 con.commit()
+
+#############################################################################
