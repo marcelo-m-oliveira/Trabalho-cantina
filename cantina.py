@@ -5,7 +5,6 @@ con = MySQLdb.connect('localhost', 'root', '')
 con.select_db('cantina')
 
 cursor = con.cursor()
-<<<<<<< HEAD
 res = int
 
 print("######################### Sistema para cantina do SENAI #########################\n \n")
@@ -15,7 +14,7 @@ from datetime import datetime
 now = datetime.now()
 print(now.hour, ":", now.minute)
 print(now.day, "/", now.month, "/", now.year)
-=======
+
 date = time.strftime("%H:%M:%S")
 cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
 cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
@@ -27,7 +26,6 @@ print(now.hour, ":", now.minute)
 print(now.day, "/", now.month, "/", now.year)
 aluno = str
 a = input("\nInforme o seu nome: ")
->>>>>>> master
 print("\n\nInforme a sua turma: ")
 print("[54125] - informatica")
 print("[12345] - redes")
@@ -40,20 +38,17 @@ con.commit()
 
 
 if tur == 54125:
-<<<<<<< HEAD
     if now.hour < 21:
         print("espere a hora de seu intervalo")
     elif (now.hour == 21 and now.minute >= 20) and (now.hour == 21 and now.minute <=59):
 
         print("Nome do aluno: ", "\n")
-=======
     if now.hour < 20:
         print("espere a hora de seu intervalo")
     elif (now.hour == 21 and now.minute >= 0) and (now.hour == 21 and now.minute <= 20):
 
         print("Nome do aluno: ", a)
         print("Turma do aluno: ", tur, "\n")
->>>>>>> master
         print("========================")
         print("     Cantina    ")
         print("========================")
@@ -88,24 +83,24 @@ if tur == 54125:
             while 2:
                 print("Pegue o lanche e o suco de sua preferencia na cantina. R$4,00")
                 break
-<<<<<<< HEAD
+
     elif (now.hour >= 21 and now.minute > 59):
-=======
+
     elif now.hour >= 20 and now.minute > :
->>>>>>> master
+
         print("Já acabou o horário.")
 
 elif tur == 12345:
 
-<<<<<<< HEAD
+
     if (now.hour <= 19  and now.minute <= 45):
-=======
+
     if (now.hour <= 21 and now.minute <= 45):
->>>>>>> master
+
         print("espere a hora de seu intervalo")
     elif (now.hour >= 19 and now.minute >= 46) and now.hour < 20:
-        a = input("\nInforme o seu nome: ")
-        aluno.append(a)
+        print("Nome do aluno: ", a)
+        print("Turma do aluno: ", tur, "\n")
         print("Numero do aluno: ", a, "\n")
         print("========================")
         print("     Cantina    ")
