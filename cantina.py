@@ -30,7 +30,7 @@ tur = int(input("Opcao: "))
 if tur == 54125:
     if now.hour < 20:
         print("espere a hora de seu intervalo")
-    elif (now.hour == 20 and now.minute >= 0) and (now.hour == 20 and now.minute <= 15):
+    elif (now.hour == 20 and now.minute >= 30) and (now.hour == 20 and now.minute <= 59):
 
         print("Nome do aluno: ", a)
         print("Turma do aluno: ", tur, "\n")
@@ -69,7 +69,7 @@ if tur == 54125:
                 print("Pegue o lanche e o suco de sua preferencia na cantina. R$4,00")
                 break
 
-    elif now.hour >= 20 and now.minute > 15:
+    elif now.hour >= 23: #and now.minute > 15:
         print("Já acabou o horário.")
 
 elif tur == 12345:
@@ -147,6 +147,5 @@ peca = (res)
 casadinha = (res)
 suco = (res)
 
-cursor.execute('insert into pedido (horario, peca, suco, casadinha) values ("%s", "%s", "%s", "%s")' % (
-date, peca, suco, casadinha))
+cursor.execute('insert into pedido (horario, peca, suco, casadinha) values ("%s", "%s", "%s", "%s")' % (date, peca, suco, casadinha))
 con.commit()
