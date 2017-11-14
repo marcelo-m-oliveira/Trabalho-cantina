@@ -15,10 +15,7 @@ now = datetime.now()
 print(now.hour, ":", now.minute)
 print(now.day, "/", now.month, "/", now.year)
 
-date = time.strftime("%H:%M:%S")
-cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
-cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
-con.commit()
+
 print("######################### Sistema para cantina do SENAI #########################\n \n")
 from datetime import datetime
 now = datetime.now()
@@ -30,11 +27,7 @@ print("\n\nInforme a sua turma: ")
 print("[54125] - informatica")
 print("[12345] - redes")
 tur = int(input("Opcao: "))
-cursor.execute('select idTurma from turma where nomeTurma = %s' %(tur))
-selecao=cursor.fetchone()
-id = int(selecao[0])
-cursor.execute('insert into aluno (nome, turma,idTurma) values ("%s", "%d","%d")' % (a, tur,id))
-con.commit()
+
 
 
 if tur == 54125:
@@ -139,13 +132,22 @@ elif tur == 12345:
     if now.hour >= 22:
         print("Já acabou o horário.")
 
+
+
+date = time.strftime("%H:%M:%S")
+cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
+cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
+con.commit() #TURMA
+
+cursor.execute('select idTurma from turma where nomeTurma = %s' %(tur))
+selecao=cursor.fetchone()
+id = int(selecao[0])
+cursor.execute('insert into aluno (nome, turma,idTurma) values ("%s", "%d","%d")' % (a, tur,id))
+con.commit() #ALUNO
+
 peca = (res)
 casadinha = (res)
 suco = (res)
-date = time.strftime("%H:%M:%S")
-cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "Microsoft"))
-con.commit()
-
 
 cursor.execute('insert into pedido (horario, peca, suco, casadinha) values ("%s", "%s", "%s", "%s")' % (date, peca, suco, casadinha))
-con.commit()
+con.commit() #PEDIDO
