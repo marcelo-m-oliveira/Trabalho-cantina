@@ -1,6 +1,0 @@
-*********************************Comandos para istalar o Mysql********************************
-
-
-pip intall wheel
-pip3 install mysqlclient
-pip install pymysql
