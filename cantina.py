@@ -10,13 +10,14 @@ res = int
 print("######################### Sistema para cantina do SENAI #########################\n \n")
 from datetime import datetime
 
+
 now = datetime.now()
 print(now.hour, ":", now.minute)
 print(now.day, "/", now.month, "/", now.year)
 
+
 print("######################### Sistema para cantina do SENAI #########################\n \n")
 from datetime import datetime
-
 now = datetime.now()
 print(now.hour, ":", now.minute)
 print(now.day, "/", now.month, "/", now.year)
@@ -27,10 +28,28 @@ print("[54125] - informatica")
 print("[12345] - redes")
 tur = int(input("Opcao: "))
 
+
+
 if tur == 54125:
+<<<<<<< Updated upstream
+    if now.hour < 21:
+        print("espere a hora de seu intervalo")
+    elif (now.hour == 21 and now.minute >= 20) and (now.hour == 21 and now.minute <=59):
+
+        print("Nome do aluno: ", "\n")
+=======
+<<<<<<< HEAD
+=======
+    if now.hour < 21:
+        print("espere a hora de seu intervalo")
+    elif (now.hour == 21 and now.minute >= 20) and (now.hour == 21 and now.minute <= 59):
+
+        print("Nome do aluno: ", "\n")
+>>>>>>> master
+>>>>>>> Stashed changes
     if now.hour < 20:
         print("espere a hora de seu intervalo")
-    elif (now.hour == 20 and now.minute >= 0) and (now.hour == 20 and now.minute <= 16):
+    elif (now.hour == 21 and now.minute >= 0) and (now.hour == 21 and now.minute <= 20):
 
         print("Nome do aluno: ", a)
         print("Turma do aluno: ", tur, "\n")
@@ -69,15 +88,42 @@ if tur == 54125:
                 print("Pegue o lanche e o suco de sua preferencia na cantina. R$4,00")
                 break
 
+<<<<<<< Updated upstream
+    elif (now.hour >= 21 and now.minute > 59):
+
+    elif now.hour >= 20 and now.minute > :
+
+=======
+<<<<<<< HEAD
     elif now.hour >= 20 and now.minute > 15:
+=======
+    elif (now.hour >= 21 and now.minute > 59):
+
+    elif now.hour >= 20 and now.minute > 0:
+
+>>>>>>> master
+>>>>>>> Stashed changes
         print("Já acabou o horário.")
 
 elif tur == 12345:
 
+<<<<<<< Updated upstream
+
+    if (now.hour <= 19  and now.minute <= 45):
+
+    if (now.hour <= 21 and now.minute <= 45):
+=======
+<<<<<<< HEAD
     if (now.hour < 21):
+=======
+    if (now.hour <= 19 and now.minute <= 45):
+
+    if (now.hour <= 21 and now.minute <= 45):
+>>>>>>> master
+>>>>>>> Stashed changes
 
         print("espere a hora de seu intervalo")
-    elif (now.hour == 21 and now.minute >= 0) and (now.hour == 21 and now.minute < 16):
+    elif (now.hour >= 19 and now.minute >= 46) and now.hour < 20:
         print("Nome do aluno: ", a)
         print("Turma do aluno: ", tur, "\n")
         print("Numero do aluno: ", a, "\n")
@@ -115,24 +161,64 @@ elif tur == 12345:
             while 2:
                 print("[1] - Pegue o lanche e o suco de sua preferencia na cantina.")
                 break
-    if now.hour > 21 and now.minute > 16:
+    if now.hour >= 22:
         print("Já acabou o horário.")
+
+<<<<<<< Updated upstream
+
+
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+date = time.strftime("%H:%M:%S")
+cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
+cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
+con.commit() #TURMA
+
+<<<<<<< Updated upstream
+cursor.execute('select idTurma from turma where nomeTurma = %s' %(tur))
+selecao=cursor.fetchone()
+id = int(selecao[0])
+cursor.execute('insert into aluno (nome, turma,idTurma) values ("%s", "%d","%d")' % (a, tur,id))
+con.commit() #ALUNO
+=======
+=======
+####################################TURMA####################################
 
 date = time.strftime("%H:%M:%S")
 cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
 cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
-con.commit()  # TURMA
+con.commit()
 
+####################################ALUNO####################################
+
+>>>>>>> master
 cursor.execute('select idTurma from turma where nomeTurma = %s' % (tur))
 selecao = cursor.fetchone()
 id = int(selecao[0])
 cursor.execute('insert into aluno (nome, turma,idTurma) values ("%s", "%d","%d")' % (a, tur, id))
+<<<<<<< HEAD
 con.commit()  # ALUNO
+=======
+con.commit()
+
+####################################PEDIDO####################################
+>>>>>>> master
+>>>>>>> Stashed changes
 
 peca = (res)
 casadinha = (res)
 suco = (res)
 
+<<<<<<< Updated upstream
+cursor.execute('insert into pedido (horario, peca, suco, casadinha) values ("%s", "%s", "%s", "%s")' % (date, peca, suco, casadinha))
+con.commit() #PEDIDO
+=======
 cursor.execute('insert into pedido (horario, peca, suco, casadinha) values ("%s", "%s", "%s", "%s")' % (
 date, peca, suco, casadinha))
+<<<<<<< HEAD
 con.commit()  # PEDIDO
+=======
+con.commit()
+>>>>>>> master
+>>>>>>> Stashed changes
