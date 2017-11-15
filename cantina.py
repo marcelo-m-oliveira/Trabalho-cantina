@@ -154,9 +154,7 @@ elif tur == 12345:
     if now.hour > 21 and now.minute > 16:
         print("Já acabou o horário.")
 
-
-
-#INTEGRAÇÃO COM MYSQL ABAIXO
+# INTEGRAÇÃO COM MYSQL ABAIXO
 
 ################################### TURMA ###################################
 
@@ -177,12 +175,24 @@ id = int(selecao[0])
 cursor.execute('insert into aluno (nome, turma,idTurma) values ("%s", "%d","%d")' % (a, tur, id))
 con.commit()
 
+##############################################################################
+
 ################################### PEDIDO ###################################
 
-peca = (res)
-casadinha = (res)
-suco = (res)
+peca = (lan)
+casadinha = (lan)
+suco = (suc)
 
 cursor.execute('insert into pedido (horario, peca, suco, casadinha) values ("%s", "%s", "%s", "%s")' % (
 date, peca, suco, casadinha))
+con.commit()
+
+#############################################################################
+
+################################### PRODUTO ###################################
+
+cursor.execute('select idPedido from pedido where nomePedido = %s' % (res))
+selecao = cursor.fetchone()
+id = int(selecao[0])
+cursor.execute('insert into produto (preco, nomeProduto) values (%s, %s)' % (res, lan or suc))
 con.commit()
