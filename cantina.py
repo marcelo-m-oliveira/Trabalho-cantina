@@ -35,6 +35,15 @@ if tur == 54125:
         print("[2] - suco R$ 1,50")
         print("[3] - casadinha R$ 4,00")
         print(" ")
+        lan1 = str("Coxinha")
+        lan2 = str("Pastel")
+        lan3 = str("Enroladinho")
+        suc1 = str("Suco de Goiaba")
+        suc2 = str("Suco de Manga")
+        cas = str("Peça + suco")
+        preço1 = str("R$2,50")
+        preço2 = str("R$1,50")
+        preço3 = str("R$4,00")
         res = int(input("Opcao: "))
 
         if res == 1:
@@ -43,19 +52,19 @@ if tur == 54125:
             print("[3] - enrroladinho")
             lan = int(input("Opção: "))
             if lan == 1:
-                print("Pegue sua coxinha. R$2,50")
+                print("Pegue sua ", lan1, ". R$2,50")
                 lucro = lucro + 2.50
                 lucrotot = lucro + lucrotot
                 print("o lucro total é: R$", lucrotot)
 
             elif lan == 2:
-                print("Pegue seu pastel. R$2,50")
+                print("Pegue seu ", lan2, ". R$2,50")
                 lucro = lucro + 2.50
                 lucrotot = lucro + lucrotot
                 print("o lucro total é: R$", lucrotot)
 
             elif lan == 3:
-                print("Pegue seu enroladinho. R$2,50")
+                print("Pegue seu ", lan3, ". R$2,50")
                 lucro = lucro + 2.50
                 lucrotot = lucro + lucrotot
                 print("o lucro total é: R$", lucrotot)
@@ -65,13 +74,13 @@ if tur == 54125:
             print("[2] - Manga")
             suc = int(input("Opcao: "))
             if suc == 1:
-                print("Pegue seu suco de goiaba. R$1,50")
+                print("Pegue seu", suc1, ". R$1,50")
                 lucro = lucro + 1.50
                 lucrotot = lucro + lucrotot
                 print("o lucro total é: R$", lucrotot)
 
             elif suc == 2:
-                print("Pegue seu suco de manga. R$1,50")
+                print("Pegue seu", suc2, ". R$1,50")
                 lucro = lucro + 1.50
                 lucrotot = lucro + lucrotot
                 print("o lucro total é: R$", lucrotot)
@@ -101,6 +110,15 @@ if tur == 12345:
         print("[2] - suco R$ 1,50")
         print("[3] - casadinha R$ 4,00")
         print(" ")
+        lan1 = str("Coxinha")
+        lan2 = str("Pastel")
+        lan3 = str("Enroladinho")
+        suc1 = str("Suco de Goiaba")
+        suc2 = str("Suco de Manga")
+        cas = str("Peça + suco")
+        preço1 = str("R$2,50")
+        preço2 = str("R$1,50")
+        preço3 = str("R$4,00")
         res = int(input("Opcao: "))
 
         if res == 1:
@@ -109,19 +127,19 @@ if tur == 12345:
             print("[3] - enrroladinho")
             lan = int(input("Opção: "))
             if lan == 1:
-                print("Pegue sua coxinha. R$2,50")
+                print("Pegue sua ", lan1, ". R$2,50")
                 lucro = lucro + 2.50
                 lucrotot = lucro + lucrotot
                 print("o lucro total é: R$", lucrotot)
 
             elif lan == 2:
-                print("Pegue seu pastel. R$2,50")
+                print("Pegue seu ", lan2, ". R$2,50")
                 lucro = lucro + 2.50
                 lucrotot = lucro + lucrotot
                 print("o lucro total é: R$", lucrotot)
 
             elif lan == 3:
-                print("Pegue seu enroladinho. R$2,50")
+                print("Pegue seu ", lan3, ". R$2,50")
                 lucro = lucro + 2.50
                 lucrotot = lucro + lucrotot
                 print("o lucro total é: R$", lucrotot)
@@ -131,13 +149,13 @@ if tur == 12345:
             print("[2] - Manga")
             suc = int(input("Opcao: "))
             if suc == 1:
-                print("Pegue seu suco de goiaba. R$1,50")
+                print("Pegue seu", suc1, ". R$1,50")
                 lucro = lucro + 1.50
                 lucrotot = lucro + lucrotot
                 print("o lucro total é: R$", lucrotot)
 
             elif suc == 2:
-                print("Pegue seu suco de manga. R$1,50")
+                print("Pegue seu", suc2, ". R$1,50")
                 lucro = lucro + 1.50
                 lucrotot = lucro + lucrotot
                 print("o lucro total é: R$", lucrotot)
@@ -185,7 +203,7 @@ con.commit()
 #peca = (res)
 #casadinha = (res)
 #suco = (res)
-#pedido = (res)
+pedido = (res)
 date = time.strftime("%H:%M:%S")
 pedido = res
 
@@ -197,8 +215,35 @@ con.commit()
 
 ################################### PRODUTO ###################################
 
-#cursor.execute('select idPedido from pedido where numPedido = %s' % (res))
-#selecao = cursor.fetchone()
-#id = int(selecao[0])
-#cursor.execute('insert into produto (preco, nomeProduto) values (%s, %s)' % (res, lan))
-#con.commit()
+cursor.execute('select idPedido from pedido where numPedido = %s' % (pedido))
+selecao = cursor.fetchone()
+id = int(selecao[0])
+
+########## LANCHES ##########
+if res == 1:
+    if lan == 1:
+        cursor.execute('insert into produto (preco, nomeProduto) values ("%s", "%s")' % (preço1, lan1))
+        con.commit()
+
+    elif lan == 2:
+        cursor.execute('insert into produto (preco, nomeProduto) values ("%s", "%s")' % (preço1, lan2))
+        con.commit()
+
+    elif lan == 3:
+        cursor.execute('insert into produto (preco, nomeProduto) values ("%s", "%s")' % (preço1, lan3))
+        con.commit()
+
+########## SUCOS ##########
+if res == 2:
+    if suc == 1:
+        cursor.execute('insert into produto (preco, nomeProduto) values ("%s", "%s")' % (preço2, suc1))
+        con.commit()
+
+    elif suc == 2:
+        cursor.execute('insert into produto (preco, nomeProduto) values ("%s", "%s")' % (preço2, suc2))
+        con.commit()
+
+########## CASADINHA ##########
+if res == 3:
+    cursor.execute('insert into produto (preco, nomeProduto) values ("%s", "%s")' % (preço3, cas))
+    con.commit()
