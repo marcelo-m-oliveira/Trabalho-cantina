@@ -342,4 +342,4 @@ lucro = str(lista).strip('[]').strip('()')
 
 cursor.execute('insert into lucro (valLucro) values ("%s")' % (lucro))
 con.commit()
-#FIM
+#FIM.
