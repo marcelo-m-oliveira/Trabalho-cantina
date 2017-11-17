@@ -8,7 +8,7 @@ con = MySQLdb.connect('localhost', 'root', '')
 con.select_db('cantina')
 
 cursor = con.cursor()
-#res = int
+# res = int
 
 ########################################################################################################################
 
@@ -16,10 +16,11 @@ cursor = con.cursor()
 
 print("######################### Sistema para cantina do SENAI #########################\n \n")
 from datetime import datetime
-#lucropec = 2.50
-#lucrosuc = 1.50
-#lucrocas = 4.00
-#lucrotot = float
+
+# lucropec = 2.50
+# lucrosuc = 1.50
+# lucrocas = 4.00
+# lucrotot = float
 now = datetime.now()
 print(now.hour, ":", now.minute)
 print(now.day, "/", now.month, "/", now.year)
@@ -30,94 +31,117 @@ print("[54125] - informatica")
 print("[12345] - redes")
 tur = int(input("Opcao: "))
 
+execução = True
+while (tur != 54125) and (tur != 12345):
+    print("Turma não localizada, tente novamente. Pressione Alt + Shift + F10 e logo em seguida ENTER.")
+    break
+    execução = False
 
+else:
+    if tur == 54125:
 
-if tur == 54125:
+        if now.hour == 3:
+            print("espere a hora de seu intervalo")
+        elif (now.hour >= 0 and now.minute >= 0) and (now.hour >= 0 and now.minute <= 59):
 
-    if now.hour > 0:
-        print("espere a hora de seu intervalo")
-    elif (now.hour >= 0 and now.minute >= 0) and (now.hour >= 0 and now.minute <= 59):
-
-        print("Nome do aluno: ", a)
-        print("Turma do aluno: ", tur, "\n")
-        print("========================")
-        print("     Cantina    ")
-        print("========================")
-        print("[1] - lanche R$ 2,50")
-        print("[2] - suco R$ 1,50")
-        print("[3] - casadinha R$ 4,00")
-        print(" ")
-        lan1 = str("Coxinha")
-        lan2 = str("Pastel")
-        lan3 = str("Enroladinho")
-        suc1 = str("Suco de Goiaba")
-        suc2 = str("Suco de Manga")
-        cas = str("Peça + suco")
-        preço1 = float(2.50)
-        preço2 = float(1.50)
-        preço3 = float(4.00)
-        res = int(input("Opcao: "))
-
-        if res == 1:
-            print("[1] - coxinha")
-            print("[2] - pastel")
-            print("[3] - enrroladinho")
-            lan = int(input("Opção: "))
-            if lan == 1:
-                print("Pegue sua ", lan1, ". R$2,50")
-
-               #lucro1 = 2.50
-               #lucrototpeça = []
-               #lucrototpeça.append(lucro1)
-               #print("o lucro total é: R$", lucrototpeça)
-
-            elif lan == 2:
-                print("Pegue seu ", lan2, ". R$2,50")
-               #lucro1 = 2.50
-               #lucrototpeça = []
-               #lucrototpeça.append(lucro1)
-               #print("o lucro total é: R$", lucrototpeça)
-
-            elif lan == 3:
-                print("Pegue seu ", lan3, ". R$2,50")
-               #lucro1 = 2.50
-               #lucrototpeça = []
-               #lucrototpeça.append(lucro1)
-               #print("o lucro total é: R$", lucrototpeça)
-
-
-
-        if res == 2:
-            print("[1] - Goiaba")
-            print("[2] - Manga")
-            suc = int(input("Opcao: "))
-            if suc == 1:
-                print("Pegue seu", suc1, ". R$1,50")
-               #lucro2 = 1.50
-               #lucrototsuco = []
-               #lucrototsuco.append(lucro2)
-               #print("o lucro total é: R$", lucrototsuco)
-
-            elif suc == 2:
-                print("Pegue seu", suc2, ". R$1,50")
-               #lucro2 = 1.50
-               #lucrototsuco = []
-               #lucrototsuco.append(lucro2)
-               #print("o lucro total é: R$", lucrototsuco)
-
-
-        elif res == 3:
-            while 2:
-                print("Pegue o lanche e o suco de sua preferencia na cantina. R$4,00")
-               #lucro3 = 4.00
-               #lucrototcasadinha = []
-               #lucrototcasadinha.append(lucro3)
-               #print("o lucro total é: R$", lucrototcasadinha)
+            print("Nome do aluno: ", a)
+            print("Turma do aluno: ", tur, "\n")
+            print("========================")
+            print("     Cantina    ")
+            print("========================")
+            print("[1] - lanche R$ 2,50")
+            print("[2] - suco R$ 1,50")
+            print("[3] - casadinha R$ 4,00")
+            print("[4] - sair")
+            lan1 = str("Coxinha")
+            lan2 = str("Pastel")
+            lan3 = str("Enroladinho")
+            suc1 = str("Suco de Goiaba")
+            suc2 = str("Suco de Manga")
+            cas = str("Peça + suco")
+            preço1 = float(2.50)
+            preço2 = float(1.50)
+            preço3 = float(4.00)
+            res = int(input("Opcao: "))
+            execução2 = True
+            while (res != 1) and (res != 2) and (res != 3) and (res != 4):
+                print("Pedido não localizado, tente novamente. Pressione Alt + Shift + F10 e logo em seguida ENTER.")
                 break
+                execução2 = False
+            else:
+                if res == 1:
+                    print("[1] - coxinha")
+                    print("[2] - pastel")
+                    print("[3] - enrroladinho")
+                    lan = int(input("Opção: "))
+                    execução3 = True
+                    while (lan != 1) and (res != 2) and (res != 3):
+                        print(
+                            "Pedido não localizado, tente novamente. Pressione Alt + Shift + F10 e logo em seguida ENTER.")
+                        break
+                        execução3 = False
+                    else:
+                        if lan == 1:
+                            print("Pegue sua ", lan1, ". R$2,50")
 
-    elif now.hour >= 3:# and now.minute > 15:
+                            # lucro1 = 2.50
+                            # lucrototpeça = []
+                            # lucrototpeça.append(lucro1)
+                            # print("o lucro total é: R$", lucrototpeça)
+
+                        elif lan == 2:
+                            print("Pegue seu ", lan2, ". R$2,50")
+                            # lucro1 = 2.50
+                            # lucrototpeça = []
+                            # lucrototpeça.append(lucro1)
+                            # print("o lucro total é: R$", lucrototpeça)
+
+                        elif lan == 3:
+                            print("Pegue seu ", lan3, ". R$2,50")
+                            # lucro1 = 2.50
+                            # lucrototpeça = []
+                            # lucrototpeça.append(lucro1)
+                            # print("o lucro total é: R$", lucrototpeça)
+
+            if res == 2:
+                print("[1] - Goiaba")
+                print("[2] - Manga")
+                suc = int(input("Opcao: "))
+                execução4 = True
+                while (suc != 1) and (suc != 2):
+                    print(
+                        "Pedido não localizado, tente novamente. Pressione Alt + Shift + F10 e logo em seguida ENTER.")
+                    break
+                    execução4 = False
+                else:
+                    if suc == 1:
+                        print("Pegue seu", suc1, ". R$1,50")
+                        # lucro2 = 1.50
+                        # lucrototsuco = []
+                        # lucrototsuco.append(lucro2)
+                        # print("o lucro total é: R$", lucrototsuco)
+
+                    elif suc == 2:
+                        print("Pegue seu", suc2, ". R$1,50")
+                        # lucro2 = 1.50
+                        # lucrototsuco = []
+                        # lucrototsuco.append(lucro2)
+                        # print("o lucro total é: R$", lucrototsuco)
+
+
+            elif res == 3:
+                print("Pegue o lanche e o suco de sua preferencia na cantina. R$4,00")
+                # lucro3 = 4.00
+                # lucrototcasadinha = []
+                # lucrototcasadinha.append(lucro3)
+                # print("o lucro total é: R$", lucrototcasadinha)
+
+            elif res == 4:
+                print("Fim da execução do programa.")
+
+
+    elif now.hour <= 3:  # and now.minute > 15:
         print("Já acabou o horário.")
-
 
 if tur == 12345:
 
@@ -133,7 +157,7 @@ if tur == 12345:
         print("[1] - lanche R$ 2,50")
         print("[2] - suco R$ 1,50")
         print("[3] - casadinha R$ 4,00")
-        print(" ")
+        print("[4] - sair")
         lan1 = str("Coxinha")
         lan2 = str("Pastel")
         lan3 = str("Enroladinho")
@@ -144,79 +168,96 @@ if tur == 12345:
         preço2 = float(1.50)
         preço3 = float(4.00)
         res = int(input("Opcao: "))
+        execução2 = True
+        while (res != 1) and (res != 2) and (res != 3) and (res != 4):
+            print("Pedido não localizado, tente novamente. Pressione Alt + Shift + F10 e logo em seguida ENTER.")
+            break
+            execução2 = False
+        else:
+            if res == 1:
+                print("[1] - coxinha")
+                print("[2] - pastel")
+                print("[3] - enrroladinho")
+                lan = int(input("Opção: "))
+                execução3 = True
+                while (lan != 1) and (res != 2) and (res != 3):
+                    print(
+                        "Pedido não localizado, tente novamente. Pressione Alt + Shift + F10 e logo em seguida ENTER.")
+                    break
+                    execução3 = False
+                else:
+                    if lan == 1:
+                        print("Pegue sua ", lan1, ". R$2,50")
 
-        if res == 1:
-            print("[1] - coxinha")
-            print("[2] - pastel")
-            print("[3] - enrroladinho")
-            lan = int(input("Opção: "))
-            if lan == 1:
-                print("Pegue sua ", lan1, ". R$2,50")
+                        # lucro1 = 2.50
+                        # lucrototpeça = []
+                        # lucrototpeça.append(lucro1)
+                        # print("o lucro total é: R$", lucrototpeça)
 
-               #lucro1 = 2.50
-               #lucrototpeça = []
-               #lucrototpeça.append(lucro1)
-               #print("o lucro total é: R$", lucrototpeça)
+                    elif lan == 2:
+                        print("Pegue seu ", lan2, ". R$2,50")
+                        # lucro1 = 2.50
+                        # lucrototpeça = []
+                        # lucrototpeça.append(lucro1)
+                        # print("o lucro total é: R$", lucrototpeça)
 
-            elif lan == 2:
-                print("Pegue seu ", lan2, ". R$2,50")
-               #lucro1 = 2.50
-               #lucrototpeça = []
-               #lucrototpeça.append(lucro1)
-               #print("o lucro total é: R$", lucrototpeça)
-
-            elif lan == 3:
-                print("Pegue seu ", lan3, ". R$2,50")
-               #lucro1 = 2.50
-               #lucrototpeça = []
-               #lucrototpeça.append(lucro1)
-               #print("o lucro total é: R$", lucrototpeça)
-
-
+                    elif lan == 3:
+                        print("Pegue seu ", lan3, ". R$2,50")
+                        # lucro1 = 2.50
+                        # lucrototpeça = []
+                        # lucrototpeça.append(lucro1)
+                        # print("o lucro total é: R$", lucrototpeça)
 
         if res == 2:
             print("[1] - Goiaba")
             print("[2] - Manga")
             suc = int(input("Opcao: "))
-            if suc == 1:
-                print("Pegue seu", suc1, ". R$1,50")
-               #lucro2 = 1.50
-               #lucrototsuco = []
-               #lucrototsuco.append(lucro2)
-               #print("o lucro total é: R$", lucrototsuco)
+            execução4 = True
+            while (suc != 1) and (suc != 2):
+                print(
+                    "Pedido não localizado, tente novamente. Pressione Alt + Shift + F10 e logo em seguida ENTER.")
+                break
+                execução4 = False
+            else:
+                if suc == 1:
+                    print("Pegue seu", suc1, ". R$1,50")
+                    # lucro2 = 1.50
+                    # lucrototsuco = []
+                    # lucrototsuco.append(lucro2)
+                    # print("o lucro total é: R$", lucrototsuco)
 
-            elif suc == 2:
-                print("Pegue seu", suc2, ". R$1,50")
-               #lucro2 = 1.50
-               #lucrototsuco = []
-               #lucrototsuco.append(lucro2)
-               #print("o lucro total é: R$", lucrototsuco)
+                elif suc == 2:
+                    print("Pegue seu", suc2, ". R$1,50")
+                    # lucro2 = 1.50
+                    # lucrototsuco = []
+                    # lucrototsuco.append(lucro2)
+                    # print("o lucro total é: R$", lucrototsuco)
 
 
         elif res == 3:
-            while 2:
-                print("Pegue o lanche e o suco de sua preferencia na cantina. R$4,00")
-               #lucro3 = 4.00
-               #lucrototcasadinha = []
-               #lucrototcasadinha.append(lucro3)
-               #print("o lucro total é: R$", lucrototcasadinha)
-                break
+            print("Pegue o lanche e o suco de sua preferencia na cantina. R$4,00")
+            # lucro3 = 4.00
+            # lucrototcasadinha = []
+            # lucrototcasadinha.append(lucro3)
+            # print("o lucro total é: R$", lucrototcasadinha)
 
-    elif now.hour == 3:# and now.minute > 15:
-        print("Já acabou o horário.")
+        elif res == 4:
+            print("Fim da execução do programa.")
 
 
+elif now.hour <= 3:  # and now.minute > 15:
+    print("Já acabou o horário.")
 
 ################################################ INTEGRAÇÃO COM MYSQL ABAIXO ###########################################
 
 ######################################################### TURMA ########################################################
 
 date = time.strftime("%H:%M:%S")
-#cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
-#cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
+# cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
+# cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
 cursor.execute('select idTurma from turma where nomeTurma = %s' % (tur))
 selecao = cursor.fetchone()
-#id = int(selecao[0])
+# id = int(selecao[0])
 cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, (tur)))
 con.commit()
 
@@ -234,16 +275,15 @@ con.commit()
 
 ######################################################### PEDIDO #######################################################
 
-#peca = (res)
-#casadinha = (res)
-#suco = (res)
-#pedido = (res)
+# peca = (res)
+# casadinha = (res)
+# suco = (res)
+# pedido = (res)
 date = time.strftime("%H:%M:%S")
 pedido = res
 
 cursor.execute('insert into pedido (horario, numPedido) values ("%s", %s)' % (date, pedido))
 con.commit()
-
 
 ########################################################################################################################
 
@@ -293,14 +333,13 @@ if res == 3:
 ######################################################## LUCRO #########################################################
 cursor.execute('select sum(preco) from cantina.produto')
 lista = []
-#str(lista).strip('[]')
+# str(lista).strip('[]')
 
 for luc in cursor.fetchall():
     lista.append(luc)
-    print("Lucro total:", lista)
+    # print("Lucro total:", lista)
 lucro = str(lista).strip('[]').strip('()')
 
 cursor.execute('insert into lucro (valLucro) values ("%s")' % (lucro))
 con.commit()
-
-
+#FIM
