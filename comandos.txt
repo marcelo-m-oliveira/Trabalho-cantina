@@ -11,3 +11,6 @@ pip install pymysql
 #cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "54125"))
 #cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, "12345"))
 #id = int(selecao[0])
+
+Senha WIFI: bfHy78d3B7
+Slack
