@@ -1,17 +1,18 @@
 class Pessoa:
 
-    def __init__(self, nome, cpf, datanasc):
+    def __init__(self, nome, cpf, datanasc, rg):
 
         self.__Nome = nome
         self.__CPF = cpf
         self.__Datanasc = datanasc
+        self.__RG = rg
 
 
 class Administrador(Pessoa):
 
-    def __init__(self, nome, cpf, datanasc):
+    def __init__(self, nome, cpf, datanasc, rg):
 
-        super().__init__(nome, cpf, datanasc)
+        super().__init__(nome, cpf, datanasc, rg)
 
     def __init__(self, car, numma):
 
@@ -21,17 +22,17 @@ class Administrador(Pessoa):
 
 class Atendente (Pessoa):
 
-    def __init__(self, nome, cpf, datanasc):
+    def __init__(self, nome, cpf, datanasc, rg):
 
-        super().__init__(nome, cpf, datanasc)
+        super().__init__(nome, cpf, datanasc, rg)
 
     def __init__ (self, )
 
 class Aluno(Pessoa):
 
-    def __init__(self, nome, cpf, datanasc):
+    def __init__(self, nome, cpf, datanasc,rg):
 
-        super().__init__(nome, cpf, datanasc)
+        super().__init__(nome, cpf, datanasc, rg)
 
     def __init__(self, numma, tur, sala):
 
@@ -76,4 +77,16 @@ class produto:
         self.__produto = produto
         self.__valor = valor
         self.__nome = nome
+        self.__codigo = codigo
+
+    def getproduto(self, produto):
+        self.__produto = produto
+
+    def valor(self, valor):
+        self.__valor = valor
+
+    def nome(self, nome):
+        self.__nome = nome
+
+    def codigo(self, codigo):
         self.__codigo = codigo
