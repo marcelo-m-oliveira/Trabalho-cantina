@@ -25,7 +25,7 @@ class Atendente (Pessoa):
 
         super().__init__(nome, cpf, datanasc)
 
-    def __init__ ()
+    def __init__ (self, )
 
 class Aluno(Pessoa):
 
@@ -42,7 +42,7 @@ class Aluno(Pessoa):
 
 
 
-""" class administrador:
+class administrador:
 
   def __init__(self, cadastAluno, cadastSala, cadastTurma, cadastHorario):
       self.__aluno = cadastAluno
@@ -66,4 +66,14 @@ class Aluno(Pessoa):
       self.__turma = turma
 
   def cadastroH(self, horario):
-      self.__horario = horario """
+      self.__horario = horario
+
+
+
+class produto:
+    def __init__(self, produto, valor, nome, codigo):
+
+        self.__produto = produto
+        self.__valor = valor
+        self.__nome = nome
+        self.__codigo = codigo
