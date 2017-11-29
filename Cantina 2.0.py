@@ -7,7 +7,6 @@ class Pessoa:
         self.__Datanasc = datanasc
         self.__RG = rg
 
-
 class Administrador(Pessoa):
 
     def __init__(self, nome, cpf, datanasc, rg):
@@ -19,6 +18,25 @@ class Administrador(Pessoa):
         self.__Cargo = car
         self.__nAdmin = numma
 
+class produto:
+    def __init__(self, produto, valor, nome, codigo):
+
+        self.__produto = produto
+        self.__valor = valor
+        self.__nome = nome
+        self.__codigo = codigo
+
+    def getproduto(self, produto):
+        self.__produto = produto
+
+    def valor(self, valor):
+        self.__valor = valor
+
+    def nome(self, nome):
+        self.__nome = nome
+
+    def codigo(self, codigo):
+        self.__codigo = codigo
 
 class Atendente (Pessoa):
 
@@ -26,7 +44,7 @@ class Atendente (Pessoa):
 
         super().__init__(nome, cpf, datanasc, rg)
 
-    def __init__ (self, )
+    def cadasPedido (self,)
 
 class Aluno(Pessoa):
 
@@ -43,7 +61,7 @@ class Aluno(Pessoa):
 
 
 
-class administrador:
+""" class administrador:
 
   def __init__(self, cadastAluno, cadastSala, cadastTurma, cadastHorario):
       self.__aluno = cadastAluno
@@ -67,26 +85,4 @@ class administrador:
       self.__turma = turma
 
   def cadastroH(self, horario):
-      self.__horario = horario
-
-
-
-class produto:
-    def __init__(self, produto, valor, nome, codigo):
-
-        self.__produto = produto
-        self.__valor = valor
-        self.__nome = nome
-        self.__codigo = codigo
-
-    def getproduto(self, produto):
-        self.__produto = produto
-
-    def valor(self, valor):
-        self.__valor = valor
-
-    def nome(self, nome):
-        self.__nome = nome
-
-    def codigo(self, codigo):
-        self.__codigo = codigo
+      self.__horario = horario """
