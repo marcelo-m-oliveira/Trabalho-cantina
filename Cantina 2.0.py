@@ -18,25 +18,44 @@ class Administrador(Pessoa):
         self.__Cargo = car
         self.__nAdmin = numma
 
-class produto:
+class Produto:
+
     def __init__(self, produto, valor, nome, codigo):
 
         self.__produto = produto
         self.__valor = valor
-        self.__nome = nome
+        self.__nomeProd = nome
         self.__codigo = codigo
 
-    def getproduto(self, produto):
+    def cadasProduto (self, produto, valor, nome, codigo):
+
+        self.__produto = produto
+        self.__valor = valor
+        self.__nomeProd = nome
+        self.__codigo = codigo
+
+    def produto(self, produto):
+
         self.__produto = produto
 
     def valor(self, valor):
+
         self.__valor = valor
 
     def nome(self, nome):
+
         self.__nome = nome
 
     def codigo(self, codigo):
+
         self.__codigo = codigo
+
+     def mostrarProduto (self):
+
+         print("Código do produto: " +str (self.__produto)
+            + "O valor do produto é: " +str (self.__valor)
+            + "O nome do produto é: " +str (self.__nomeProd)
+            + "O seu produto é : " +str (self.__codigo))
 
 class Atendente (Pessoa):
 
@@ -44,7 +63,9 @@ class Atendente (Pessoa):
 
         super().__init__(nome, cpf, datanasc, rg)
 
-    def cadasPedido (self,)
+    def cadasProduto (self, cadasProduto, produto):
+
+        produto.Produto(cadasProduto)
 
 class Aluno(Pessoa):
 
