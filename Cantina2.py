@@ -1,3 +1,23 @@
+from datetime import datetime
+
+import MySQLdb
+con = MySQLdb.connect('localhost', 'root', '')
+con.select_db('cantina')
+
+cursor = con.cursor()
+
+class time:
+
+    def imprimeTime(self):
+
+        now = datetime.now()
+        print(now.hour, ":", now.minute)
+        print(now.day, "/", now.month, "/", now.year)
+
+    def barrarhorario(self):
+
+
+
 class Pessoa:
 
     def __init__(self, nome, cpf, datanasc, rg):
@@ -6,6 +26,11 @@ class Pessoa:
         self.__CPF = cpf
         self.__Datanasc = datanasc
         self.__RG = rg
+
+    def inserir(self):
+
+        nome = input("Insira seu nome:\n")
+        turma = input("\nInsira sua turma: \n")
 
 class Administrador(Pessoa):
 
@@ -17,6 +42,15 @@ class Administrador(Pessoa):
 
         self.__Cargo = car
         self.__nAdmin = numma
+
+
+class pedido:
+
+    def __init__(self, numpedido, valorpedido, produto):
+
+        self.__numero = numpedido
+        self.__valor = valorpedido
+        self.__produto = produto
 
 class Produto:
 
@@ -50,7 +84,7 @@ class Produto:
 
         self.__codigo = codigo
 
-     def mostrarProduto (self):
+    def mostrarProduto (self):
 
          print("Código do produto: " +str (self.__produto)
             + "O valor do produto é: " +str (self.__valor)
@@ -63,9 +97,19 @@ class Atendente (Pessoa):
 
         super().__init__(nome, cpf, datanasc, rg)
 
+
     def cadasProduto (self, cadasProduto, produto):
 
         produto.Produto(cadasProduto)
+
+    def cadasProd (self, prod):
+
+        self.__prod = prod
+
+    def verLucro(self, lucro):
+
+        self.__lucro = lucro
+
 
 class Aluno(Pessoa):
 
@@ -79,10 +123,36 @@ class Aluno(Pessoa):
         self.__turma = tur
         self.__sala = sala
 
+    def pedido(self, pedido):
+
+        self.__pedido = pedido
+
+    def verCardapio(self, cardapio):
+
+        self.__cardapio = cardapio
 
 
+class sala:
 
-""" class administrador:
+   def __init__(self, nome, horaintervalo, turma):
+
+       self.__nome = nome
+       self.__horaint = horaintervalo
+       self.__turma = turma
+
+   def criarsala(self, numero, horaintervalo):
+
+        self.__numsala = numero
+        self.__horaint = horaintervalo
+
+
+date = time.strftime("%H:%M:%S")
+cursor.execute('select idTurma from turma where nomeTurma = %s' % (tur))
+selecao = cursor.fetchone()
+cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, (tur)))
+con.commit()
+
+"""" class administrador:
 
   def __init__(self, cadastAluno, cadastSala, cadastTurma, cadastHorario):
       self.__aluno = cadastAluno
@@ -94,16 +164,18 @@ class Aluno(Pessoa):
       from datetime import datetime
       now = datetime.now()
       print(now.hour, ":", now.minute)
-      print(now.day, "/", now.month, "/", now.year),
 
   def cadastroA(self, aluno):
       self.__aluno = aluno
 
   def cadastroS(self, sala):
       self.__sala = sala
+      print(now.day, "/", now.month, "/", now.year),
 
   def cadastroT(self, turma):
       self.__turma = turma
 
   def cadastroH(self, horario):
       self.__horario = horario """
+
+
