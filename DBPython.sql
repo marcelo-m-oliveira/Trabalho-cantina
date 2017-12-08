@@ -10,14 +10,57 @@ nomeTurma varchar (30),
 primary key (idTurma)
 );
 
+create table if not exists sala(
+idSala int not null auto_increment,
+idTurma int,
+nome varchar(15),
+hora_interv time,
+primary key (idSala),
+foreign key (idTurma) references turma
+);
 
- create table if not exists aluno (
+create table if not exists pessoa(
+idPessoa int not null auto_increment,
+nome varchar(50),
+cpf int, 
+datanasc date,
+rg int,
+primary key (idPessoa)
+);
+
+create table if not exists administrador(
+idAdmin int not null auto_increment,
+idPessoa int,
+nome varchar(50),
+cpf int, 
+datanasc date,
+rg int,
+cargo varchar (20),
+nummatri int,
+primary key (idAdmin),
+foreign key (idPessoa) references pessoa
+);
+
+create table if not exists aluno (
 idAluno int auto_increment not null,
 idTurma int,
+idPessoa int,
 nome varchar (30),
 turma varchar (20),
 primary key (idAluno),
-foreign key (idTurma) references turma(idTurma)
+foreign key (idTurma) references turma(idTurma),
+foreign key (idPessoa) references pessoa
+);
+
+create table if not exists atendente(
+idAtendente int not null auto_increment,
+idPessoa int,
+nome varchar(50),
+cpf int, 
+datanasc date,
+rg int,
+primary key (idAtendente),
+foreign key (idPessoa) references pessoa
 );
  
  create table if not exists pedido (
