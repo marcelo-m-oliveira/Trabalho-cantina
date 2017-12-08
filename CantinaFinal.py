@@ -30,17 +30,6 @@ class Pessoa:
         self.__Datanasc = datanasc
         self.__RG = rg
 
-    def inserir(self):
-
-        nome = input("Insira seu nome:\n")
-        turma = input("\nInsira sua turma: \n")
-        date = time
-
-
-        cursor.execute('select idTurma from turma where nomeTurma = %s' % (turma))
-        selecao = cursor.fetchone()
-        cursor.execute('insert into turma (horario, nomeTurma) values ("%s", "%s")' % (date, (turma)))
-        con.commit()
 
 class Administrador(Pessoa):
 
@@ -52,9 +41,20 @@ class Administrador(Pessoa):
 
     def cadastraAluno(self):
         #SQL de cadastro
+        nome = input("Insira o nome do aluno:\n")
+        cpf = input("Insira o CPF do aluno:\n")
+        nasc = input("Insira a data de nascimento do aluno:\n")
+        rg = input("Insira o RG do aluno:\n")
+        turma = input("Insira a turma do aluno:\n")
+        sala = input("Insira a sala do aluno:\n")
+        cursor.execute('insert into aluno ("nome, turma") values ("%s", "%s")' % (nome, turma)
+        con.commit()
     def cadastraTurma(self):
         #SQL de cadastro de turma
         #aqui talvez na Tabela turma tenha a sala
+        date = time
+        turma = Pessoa.inserir()
+        cursor.execute('insert into turma ("horario", "nomeTura") values ("%s", "%s")' % (date, turma)
     def cadastraSala(self):
         #SQL de cadastro de sala
         #Aqui talvez na tabela sala tenha o horário de intervalo
